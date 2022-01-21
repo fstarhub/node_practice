@@ -36,7 +36,7 @@ class GoodsService {
   }
 
   async shelvesGoods(id) {
-    const res = await Goods.restore({ where: {id}})
+    const res = await Goods.restore({ where: {id}}) // 恢复软删除记录
     // console.log('res', res)
     return res > 0 ? true : false
   }
