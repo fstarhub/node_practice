@@ -27,6 +27,11 @@ const User = seq.define('zd_user', {
     allowNull: false,
     defaultValue: 0,
     comment: '0：是普通用户(默认)，1：是管理员'
+  },
+  role_id: {
+    type: DataTypes.STRING,
+    allowNull: true,
+    comment: '账号角色id'
   }
 })
 
