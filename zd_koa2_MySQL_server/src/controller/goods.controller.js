@@ -7,7 +7,7 @@
  */
 const path = require('path')
 
-const { createGoods, updateGoods, removeGoods, shelvesGoods, findGoods } = require('../service/goods.service')
+const { createGoods, updateGoods, removeGoods, shelvesGoods, findGoods, forceRemoveGoods } = require('../service/goods.service')
 
 const { fileUploadError, unSupportFileType, createGoodsError, invalidGoodsId } = require('../constant/err.types') 
 class GoodsController {
@@ -69,6 +69,27 @@ class GoodsController {
 
   async remove (ctx, next) {
     const res = await removeGoods(ctx.params.id)
+    try {
+      if (res) {
+        ctx.body = {
+          code: 0,
+          message: '删除商品成功',
+          result: ''
+        }
+      } else {
+        ctx.body = {
+          code: 0,
+          message: '商品不存在或已删除',
+          result: ''
+        }
+      }
+    } catch (error) {
+      
+    }
+  }
+
+  async ForceRemove (ctx, next) {
+    const res = await forceRemoveGoods(ctx.params.id)
     try {
       if (res) {
         ctx.body = {

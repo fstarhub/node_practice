@@ -9,7 +9,7 @@ const Router = require('koa-router')
 
 const router = new Router({ prefix: '/goods' })
 
-const { upload, create, update, remove, offShelfGoods, onShelfGoods, findAllGoods } = require('../controller/goods.controller')
+const { upload, create, update, remove, offShelfGoods, onShelfGoods, findAllGoods, ForceRemove } = require('../controller/goods.controller')
 
 const { auth, hadAdminPermission } = require('../middleware/auth.middleware')
 const { validator, validateIsPublish } = require('../middleware/goods.middleware')
@@ -34,6 +34,9 @@ router.put('/:id', auth, hadAdminPermission, validator, update)
 
 // 删除商品
 router.delete('/:id', auth, hadAdminPermission, remove)
+
+// 删除商品(硬)
+router.delete('/:id/delete', auth, hadAdminPermission, ForceRemove)
 
 // 商品下架
 router.post('/:id/off', auth, hadAdminPermission, offShelfGoods)

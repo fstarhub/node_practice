@@ -35,6 +35,12 @@ class GoodsService {
     return res > 0 ? true : false
   }
 
+  async forceRemoveGoods(id) {
+    const res = await Goods.destroy({ where: {id}, force: true})
+    // console.log('res', res)
+    return res > 0 ? true : false
+  }
+
   async shelvesGoods(id) {
     const res = await Goods.restore({ where: {id}}) // 恢复软删除记录
     // console.log('res', res)
