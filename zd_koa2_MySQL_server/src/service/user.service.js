@@ -12,7 +12,7 @@ class UserService {
       password,
       visiblePassword,
     })
-    console.log(res, 'res')
+    // console.log(res, 'res')
     return res
   }
 
@@ -44,6 +44,12 @@ class UserService {
     })
     // console.log(res, 'update')
     return res[0] > 0 ? true : fasle
+  }
+
+  async findUsers() {
+    return await User.findAll({
+      attributes: ['user_name', 'is_admin', 'role_id', 'user_plone', 'user_mailbox', 'createdAt']
+    })
   }
 
 }

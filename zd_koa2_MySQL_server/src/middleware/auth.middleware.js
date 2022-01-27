@@ -41,7 +41,6 @@ const auth = async (ctx, next) => {
 const hadAdminPermission = async (ctx, next) => {
   const { is_admin } = ctx.state.user
   console.log('登录用户是', ctx.state.user)
-  // console.log(is_admin, 'admin')
   if (!is_admin) {
     console.error('该用户没有管理员权限', ctx.request.body)
     return  ctx.app.emit('error', hasNotAdminPermission, ctx)

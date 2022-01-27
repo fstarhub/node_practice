@@ -4,7 +4,7 @@ const UserContraller = require('../controller/user.controller')
 
 const { userValidator, verifyUser, ctyptPassword, verifyLogin} = require('../middleware/user.middleware')
 
-const { auth } = require('../middleware/auth.middleware')
+const { auth, hadAdminPermission } = require('../middleware/auth.middleware')
 
 // const router = new Router()
 const router = new Router({ prefix: '/users'}) // 访问user路由下的'/'路由时，会和'/users'进行拼接，'/users/'
@@ -21,5 +21,7 @@ router.post('/login', userValidator, verifyLogin, UserContraller.login)
 
 router.patch('/', auth, ctyptPassword, UserContraller.changePassword)
 
+// 查询所有用户
+router.post('/findAll', auth, hadAdminPermission, UserContraller.findAllUser)
 
 module.exports = router

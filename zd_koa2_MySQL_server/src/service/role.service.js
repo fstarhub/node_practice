@@ -8,7 +8,7 @@ class RoleService {
 
   async getAllRole() {
     return await Role.findAll({
-      attributes: ['role_id', 'role_name']
+      attributes: ['role_id', 'role_name', 'createdAt', 'updatedAt']
     })
   }
 }

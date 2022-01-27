@@ -31,7 +31,7 @@ class RoleController {
     ctx.body = {
       code: 0,
       message: 'Success',
-      return: res
+      result: res
     }
   }
 }
