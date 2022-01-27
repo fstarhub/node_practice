@@ -12,18 +12,6 @@ const Role = seq.define('zd_role', {
     allowNull: false,
     comment: '用户角色名称'
   },
-  role_plone: {
-    type: DataTypes.BIGINT,
-    allowNull: true,
-    // defaultValue: 17344554455,
-    comment: '用户角色联系电话'
-  },
-  role_mailbox: {
-    type: DataTypes.STRING,
-    allowNull: true,
-    // defaultValue: '',
-    comment: '用户角色邮箱'
-  },
   role_menus: {
     type: DataTypes.STRING,
     allowNull: true,

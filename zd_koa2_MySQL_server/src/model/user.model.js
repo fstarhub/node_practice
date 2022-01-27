@@ -32,7 +32,19 @@ const User = seq.define('zd_user', {
     type: DataTypes.STRING,
     allowNull: true,
     comment: '账号角色id'
-  }
+  },
+  user_plone: {
+    type: DataTypes.BIGINT,
+    allowNull: true,
+    // defaultValue: 17344554455,
+    comment: '用户联系电话'
+  },
+  user_mailbox: {
+    type: DataTypes.STRING,
+    allowNull: true,
+    // defaultValue: '',
+    comment: '用户邮箱'
+  },
 })
 
 // User.sync({force: true}) // 强制同步数据库（删除再新增）
