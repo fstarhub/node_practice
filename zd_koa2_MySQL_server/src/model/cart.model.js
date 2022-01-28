@@ -2,7 +2,7 @@
 const seq = require('../db/seq')
 const { DataTypes } = require('sequelize')
 
-const Goods = require('../model/goods.model')
+const Goods = require('./goods.model')
 
 // 2.定义数据模型
 const Cart = seq.define('Carts', {

@@ -1,4 +1,5 @@
 const User = require('../model/user.model')
+const Role = require('../model/role.model')
 class UserService {
   async createUser(user_name, password, visiblePassword) {
     // 写入数据库
@@ -48,7 +49,11 @@ class UserService {
 
   async findUsers() {
     return await User.findAll({
-      attributes: ['user_name', 'is_admin', 'role_id', 'user_plone', 'user_mailbox', 'createdAt']
+      attributes: ['user_name', 'is_admin', 'user_plone', 'user_mailbox', 'createdAt'],
+      include: {
+        model: Role,
+        as: 'role',
+      }
     })
   }
 

@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize');
 
 const seq = require('../db/seq')
+const Role = require('./role.model')
 
 // 创建模型(model: zd_user->zc_users)
 const User = seq.define('zd_user', {
@@ -49,4 +50,7 @@ const User = seq.define('zd_user', {
 
 // User.sync({force: true}) // 强制同步数据库（删除再新增）
 
+// Role.belongsTo(User, {foreignKey: 'role_id', as: 'role'})   不可这样写，单独这样写表之间关联不上
+User.hasOne(Role, {foreignKey: 'role_id', as: 'role', sourceKey: 'role_id'})
+// Role.belongsTo(User, {foreignKey: 'role_id', as: 'role'})
 module.exports= User

@@ -13,6 +13,7 @@ class CartController {
   }
 
   async findCarts (ctx, next) {
+    // const { pageNum = 1, pageSize = 10, user_id } = ctx.request.body
     const user_id = ctx.state.user.id
     const { pageNum = 1, pageSize = 10 } = ctx.request.body
     let res = await queryGoods(user_id, pageNum, pageSize)
