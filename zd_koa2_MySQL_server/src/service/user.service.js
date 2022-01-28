@@ -1,3 +1,4 @@
+const { Sequelize } = require('sequelize')
 const User = require('../model/user.model')
 const Role = require('../model/role.model')
 class UserService {
@@ -49,11 +50,14 @@ class UserService {
 
   async findUsers() {
     return await User.findAll({
-      attributes: ['user_name', 'is_admin', 'user_plone', 'user_mailbox', 'createdAt'],
+      // attributes: ['user_name', 'is_admin', 'user_plone', 'user_mailbox', 'createdAt'],
+      attributes: ['user_name', 'is_admin', 'user_plone', 'user_mailbox', 'createdAt', Sequelize.col('role.role_name')],
       include: {
         model: Role,
         as: 'role',
-      }
+        attributes: [],
+      },
+      raw: true
     })
   }
 
