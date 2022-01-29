@@ -10,7 +10,7 @@ router.get('/', ctx => {
 })
 
 // 增加角色
-router.post('/add', auth, hadAdminPermission, addOneRole)
+router.post('/add', auth, hadAdminPermission, verifyRoleExit, addOneRole)
 
 // 查询所有角色
 router.post('/', auth, hadAdminPermission, findAllRole)

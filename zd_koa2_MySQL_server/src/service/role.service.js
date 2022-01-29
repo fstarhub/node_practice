@@ -22,6 +22,13 @@ class RoleService {
     })
     return res > 0 ? true : false
   }
+
+  // 查询角色（单个）
+  async findRoleOne(param) {
+    return await Role.findOne({
+      where: param
+    })
+  }
 }
 
 module.exports = new RoleService()

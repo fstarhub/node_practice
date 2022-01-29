@@ -90,5 +90,10 @@ module.exports = {
     code: '10401',
     message: '订单格式错误',
     result: ''
+  },
+  roleIsExit: {
+    code: '10501',
+    message: '角色已存在',
+    result: ''
   }
 }
