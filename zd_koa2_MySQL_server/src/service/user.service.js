@@ -61,6 +61,9 @@ class UserService {
     })
   }
 
+  async adduser(userInfo) {
+    return await User.create(userInfo)
+  }
 }
 
 module.exports = new UserService()

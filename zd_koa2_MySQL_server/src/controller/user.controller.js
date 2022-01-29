@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 const { JWT_SECRET } = require('../config/config.default')
-const { createUser, getUserInfo, updateById, findUsers } = require('../service/user.service')
+const { createUser, getUserInfo, updateById, findUsers, adduser } = require('../service/user.service')
 class UserContraller {
   // static registerTest(ctx, next) {
   //   console.log('jajjaajj')
@@ -104,6 +104,16 @@ class UserContraller {
 
   async findAllUser(ctx) {
     const res = await findUsers()
+    ctx.body = {
+      code: 0,
+      message: 'Success',
+      result: res
+    }
+  }
+
+  async addOne(ctx) {
+    // console.log(ctx.request.body, 'body')
+    const res = await adduser(ctx.request.body)
     ctx.body = {
       code: 0,
       message: 'Success',
