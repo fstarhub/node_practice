@@ -34,7 +34,7 @@ const User = seq.define('zd_user', {
     allowNull: true,
     comment: '账号角色id'
   },
-  user_plone: {
+  user_phone: {
     type: DataTypes.BIGINT,
     allowNull: true,
     // defaultValue: 17344554455,
@@ -52,5 +52,4 @@ const User = seq.define('zd_user', {
 
 // Role.belongsTo(User, {foreignKey: 'role_id', as: 'role'})   不可这样写，单独这样写表之间关联不上
 User.hasOne(Role, {foreignKey: 'role_id', as: 'role', sourceKey: 'role_id'})
-// User.hasOne(Role, {foreignKey: 'role_id', sourceKey: 'role_id'})
 module.exports= User

@@ -50,8 +50,8 @@ class UserService {
 
   async findUsers() {
     return await User.findAll({
-      // attributes: ['user_name', 'is_admin', 'user_plone', 'user_mailbox', 'createdAt'],
-      attributes: ['user_name', 'is_admin', 'user_plone', 'user_mailbox', 'createdAt', Sequelize.col('role.role_name')],
+      // attributes: ['user_name', 'is_admin', 'user_phone', 'user_mailbox', 'createdAt'],
+      attributes: ['id', 'user_name', 'is_admin', 'user_phone', 'user_mailbox', 'createdAt', Sequelize.col('role.role_name')],
       include: {
         model: Role,
         as: 'role',
@@ -61,8 +61,15 @@ class UserService {
     })
   }
 
-  async adduser(userInfo) {
+  async addUser(userInfo) {
     return await User.create(userInfo)
+  }
+
+  async delUser(whereOP) {
+    const res = await User.destroy({
+      where: whereOP
+    })
+    return res > 0 ? true : false
   }
 }
 

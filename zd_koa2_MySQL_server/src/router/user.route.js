@@ -25,5 +25,7 @@ router.patch('/', auth, ctyptPassword, UserContraller.changePassword)
 router.post('/findAll', auth, hadAdminPermission, UserContraller.findAllUser)
 // 新增用户
 router.post('/newAdd', auth, hadAdminPermission, verifyUser, ctyptPassword, UserContraller.addOne)
+// 删除用户
+router.post('/delOne', auth, hadAdminPermission, UserContraller.delOne)
 
 module.exports = router
