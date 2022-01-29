@@ -1,6 +1,6 @@
 
 const { nanoid } = require('nanoid')
-const { addOne,getAllRole } = require('../service/role.service')
+const { addOne,getAllRole, delOne } = require('../service/role.service')
 
 class RoleController {
 
@@ -34,6 +34,26 @@ class RoleController {
       result: res
     }
   }
+
+  async delRoleByOne(ctx, next) {
+    const { role_id } = ctx.request.body
+    const res = await delOne(role_id)
+    if (res) {
+      ctx.body = {
+        code: 0,
+        message: 'Success',
+        result: res
+      }
+    } else {
+      ctx.body = {
+        code: 0,
+        message: '删除失败',
+        result: res
+      }
+    }
+    
+  }
+
 }
 
 module.exports = new RoleController()
