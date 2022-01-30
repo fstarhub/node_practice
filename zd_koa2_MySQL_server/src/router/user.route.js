@@ -25,6 +25,8 @@ router.patch('/', auth, ctyptPassword, UserContraller.changePassword)
 router.post('/findAll', auth, hadAdminPermission, UserContraller.findAllUser)
 // 新增用户
 router.post('/newAdd', auth, hadAdminPermission, verifyUser, ctyptPassword, UserContraller.addOne)
+// 修改用户
+router.post('/editOne', auth, hadAdminPermission, ctyptPassword, UserContraller.editUser)
 // 删除用户
 router.post('/delOne', auth, hadAdminPermission, UserContraller.delOne)
 
