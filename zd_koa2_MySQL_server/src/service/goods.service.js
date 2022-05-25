@@ -8,6 +8,11 @@
 const { Op } = require('sequelize')
 const Goods = require('../model/goods.model')
 class GoodsService {
+  // async addGoods (goods) {
+  //   const res = await Goods.create(goods)
+  //   return res.dataValues
+  // }
+
   async createGoods (goods) {
     const res = await Goods.create(goods)
     // console.log('res,', res)

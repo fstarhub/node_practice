@@ -15,17 +15,22 @@ class GoodsController {
     // console.log(ctx.request.files.file)
 
     const { file } = ctx.request.files
+    // const { goods_Name, goods_Price, goods_Num } = ctx.request.body
     // console.log(file,'file')
     const fileTypes = ['image/jpeg', 'image/png']
     if (file) {
       if (!fileTypes.includes(file.type)) {
         return ctx.app.emit('error', unSupportFileType, ctx)
       }
+      const goods_img = path.basename(file.path)
+      // 保存商品到数据库
+      // const res = await addGoods({goods_Name, goods_Price, goods_Num, goods_img})
       ctx.body = {
         code: 0,
         message: '商品上传成功',
         result: {
-          goods_img: path.basename(file.path)
+          // goods_img: path.basename(file.path)
+          goods_img: goods_img
         }
       }
     } else {
