@@ -30,4 +30,12 @@ router.post('/editOne', auth, hadAdminPermission, UserContraller.editUser)
 // 删除用户
 router.post('/delOne', auth, hadAdminPermission, UserContraller.delOne)
 
+// 测试
+router.post('/add', (ctx) => {
+  console.log('add被请求了')
+  ctx.body = {
+    data: '这是后台返回的数据'
+  }
+})
+
 module.exports = router
