@@ -30,11 +30,91 @@ router.post('/editOne', auth, hadAdminPermission, UserContraller.editUser)
 // 删除用户
 router.post('/delOne', auth, hadAdminPermission, UserContraller.delOne)
 
-// 测试
-router.post('/add', (ctx) => {
-  console.log('add被请求了')
+// 字典接口
+router.post('/getOptions', (ctx) => {
+  // console.log(ctx.request.body.typeId, 'getOptions-request')
+  switch(ctx.request.body.typeId) {
+    case 'zhonglei':
+      ctx.body = {
+        message: 'success',
+        data: [
+          {
+            value: '1',
+            label: '黄金糕'
+          }, {
+            value: '2',
+            label: '双皮奶'
+          }, {
+            value: '3',
+            label: '蚵仔煎'
+          }, {
+            value: '4',
+            label: '龙须面'
+          }, {
+            value: '5',
+            label: '北京烤鸭'
+          }
+        ]
+      }
+      break;
+    case 'dengji':
+      ctx.body = {
+        message: 'success',
+        data: [
+          {
+            value: '6',
+            label: '一级风险'
+          }, {
+            value: '7',
+            label: '二级风险'
+          }, {
+            value: '8',
+            label: '三级风险'
+          }, {
+            value: '9',
+            label: '四级风险'
+          }, {
+            value: '10',
+            label: '五级风险'
+          }
+        ]
+      }
+      break;
+    case 'chengdu':
+      ctx.body = {
+        message: 'success',
+        data: [
+          {
+            value: '11',
+            label: '了解'
+          }, {
+            value: '12',
+            label: '熟悉'
+          }, {
+            value: '13',
+            label: '精通'
+          }, {
+            value: '14',
+            label: '底层'
+          }, {
+            value: '15',
+            label: '掌握'
+          }
+        ]
+      }
+      break;
+    default:
+      ctx.body = {
+        message: '暂无数据'
+      }
+  }
+})
+
+// 测试接口
+router.post('/test', (ctx) => {
+  console.log('test接口被请求了')
   ctx.body = {
-    data: '这是后台返回的数据'
+    data: '接口请求成功'
   }
 })
 
