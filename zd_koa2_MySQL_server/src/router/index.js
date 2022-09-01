@@ -19,5 +19,8 @@ fs.readdirSync(__dirname).forEach(file => {
     router.use(r.routes())
   }
 })
+router.get('/', ctx => {
+  ctx.body = '请求成功'
+})
 
 module.exports = router
