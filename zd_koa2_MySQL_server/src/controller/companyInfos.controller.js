@@ -1,4 +1,4 @@
-const { doInsert, getCompanyId } = require('../service/companyBaseInfoService')
+const { doInsert, getCompanyId } = require('../service/companyInfosService')
 const axios = require('axios')
 
 class CompanyBaseInfoController {
