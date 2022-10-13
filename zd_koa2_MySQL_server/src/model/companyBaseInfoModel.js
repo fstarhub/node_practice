@@ -191,7 +191,7 @@ const CompanyBaseInfo = seq.define('companyBaseInfos', {
 }, {
   timestamps: false,  //去除createAt updateAt
   // freezeTableName: true,  // 使用自定义表名
-  tableName: 'companyBaseInfos',
+  tableName: 'company_base_infos',
   // 如果需要sequelize帮你维护createdAt,updatedAt和deletedAt必须先启用timestamps功能
   // 将createdAt对应到数据库的created_at字段
   // createdAt: 'created_at',
