@@ -2,6 +2,8 @@ const Koa = require('koa')
 
 const KoaBody = require('koa-body')
 
+const bodyParser = require('koa-bodyparser')
+
 const path = require('path')
 
 const KoaStatic = require('koa-static')
@@ -30,7 +32,14 @@ app.use(KoaBody({
    * GET, HEAD, and DELETE requests have no defined semantics for the request body, but this doesn't mean they may not be valid in certain use cases.
    *  koa-body is strict by default, parsing only POST, PUT, and PATCH requests
    */
-  parsedMethods: ['POST', 'PUT', 'PATCH', 'DELETE'] // koaBody默认只将get, post, patch挂载到ctx.request.body
+  parsedMethods: ['POST', 'PUT', 'PATCH', 'DELETE'], // koaBody默认只将get, post, patch挂载到ctx.request.body
+  formLimit: '10mb', // 扩大请求体
+  jsonLimit: '10mb', // 扩大请求体
+}))
+
+app.use(bodyParser({
+  formLimit: '10mb', // 扩大请求体
+  jsonLimit: '10mb', // 扩大请求体
 }))
 
 app.use(KoaStatic(path.join(__dirname, '../upload')))

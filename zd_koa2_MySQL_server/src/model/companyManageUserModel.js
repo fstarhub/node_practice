@@ -26,6 +26,6 @@ const CompanyManageUser = seq.define('company_manage_user', {
   timestamps: false,  //去除createAt updateAt
 })
 
-CompanyManageUser.sync({ force: true })
+// CompanyManageUser.sync({ force: true })
 
 module.exports = CompanyManageUser

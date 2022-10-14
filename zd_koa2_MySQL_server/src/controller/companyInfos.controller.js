@@ -1,14 +1,126 @@
-const { doInsert, getCompanyId } = require('../service/companyInfosService')
+const { doInsertBase, getCompanyId, doInsertFilling, doInsertManage, doInsertRisk, doInsertMaterials, doInsertSensitive } = require('../service/companyInfosService')
 const axios = require('axios')
 
 class CompanyBaseInfoController {
-  async insertData(ctx, next) {
+  // 向数据库插入企业填报信息
+  async insertFillingData(ctx, next) {
+    let paramData = ctx.request.body
+    let paramLength = ctx.request.body.length
+    try {
+      for (let index = 0; index < paramLength; index++) {
+        const res = await doInsertFilling(paramData[index])
+      }
+      ctx.body = {
+        code: 0,
+        message: '插入数据成功',
+        result: ''
+      }
+    } catch (error) {
+      ctx.body = {
+        code: 1,
+        message: '插入数据出错',
+        result: ''
+      }
+    }
+  }
+
+  // 向数据库插入企业基本信息
+  async insertBaseData(ctx, next) {
     // console.log(ctx.request.body)
     let paramData = ctx.request.body
     let paramLength = ctx.request.body.length
     try {
       for (let index = 0; index < paramLength; index++) {
-        const res = await doInsert(paramData[index])
+        const res = await doInsertBase(paramData[index])
+      }
+      ctx.body = {
+        code: 0,
+        message: '插入数据成功',
+        result: ''
+      }
+    } catch (error) {
+      ctx.body = {
+        code: 1,
+        message: '插入数据出错',
+        result: ''
+      }
+    }
+  }
+
+  // 向数据库插入企业管理人员信息
+  async insertManageData(ctx, next) {
+    let paramData = ctx.request.body
+    let paramLength = ctx.request.body.length
+    try {
+      for (let index = 0; index < paramLength; index++) {
+        const res = await doInsertManage(paramData[index])
+      }
+      ctx.body = {
+        code: 0,
+        message: '插入数据成功',
+        result: ''
+      }
+    } catch (error) {
+      ctx.body = {
+        code: 1,
+        message: '插入数据出错',
+        result: ''
+      }
+    }
+  }
+
+  // 向数据库插入风险源信息
+  async insertRiskData(ctx, next) {
+    let paramData = ctx.request.body
+    let paramLength = ctx.request.body.length
+    try {
+      // for (let index = 0; index < paramLength; index++) {
+      //   const res = await doInsertRisk(paramData[index])
+      // }
+      ctx.body = {
+        code: 0,
+        message: '插入数据成功',
+        result: '',
+        length: paramLength
+      }
+    } catch (error) {
+      ctx.body = {
+        code: 1,
+        message: '插入数据出错',
+        result: ''
+      }
+    }
+  }
+
+  // 向数据库插入应急物资信息
+  async insertMaterialsData(ctx, next) {
+    let paramData = ctx.request.body
+    let paramLength = ctx.request.body.length
+    try {
+      for (let index = 0; index < paramLength; index++) {
+        const res = await doInsertMaterials(paramData[index])
+      }
+      ctx.body = {
+        code: 0,
+        message: '插入数据成功',
+        result: ''
+      }
+    } catch (error) {
+      ctx.body = {
+        code: 1,
+        message: '插入数据出错',
+        result: ''
+      }
+    }
+  }
+
+  // 向数据库插入敏感目标信息
+  async insertSensitiveData(ctx, next) {
+    let paramData = ctx.request.body
+    let paramLength = ctx.request.body.length
+    try {
+      for (let index = 0; index < paramLength; index++) {
+        const res = await doInsertSensitive(paramData[index])
       }
       ctx.body = {
         code: 0,
