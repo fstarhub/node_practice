@@ -1,3 +1,10 @@
+/*
+ * @Description: 企业风险源
+ * @Autor: fengshuai
+ * @Date: 2022-10-15 14:35:41
+ * @LastEditors: fengshuai
+ * @LastEditTime: 2022-10-16 22:14:39
+ */
 const seq = require('../db/seq')
 const { DataTypes } = require('sequelize')
 

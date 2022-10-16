@@ -1,3 +1,10 @@
+/*
+ * @Description: 用户
+ * @Autor: fengshuai
+ * @Date: 2022-08-27 12:59:27
+ * @LastEditors: fengshuai
+ * @LastEditTime: 2022-10-16 22:15:27
+ */
 const { DataTypes } = require('sequelize');
 
 const seq = require('../db/seq')

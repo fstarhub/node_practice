@@ -74,9 +74,9 @@ class CompanyBaseInfoController {
     let paramData = ctx.request.body
     let paramLength = ctx.request.body.length
     try {
-      // for (let index = 0; index < paramLength; index++) {
-      //   const res = await doInsertRisk(paramData[index])
-      // }
+      for (let index = 0; index < paramLength; index++) {
+        const res = await doInsertRisk(paramData[index])
+      }
       ctx.body = {
         code: 0,
         message: '插入数据成功',

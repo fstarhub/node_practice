@@ -1,3 +1,10 @@
+/*
+ * @Description: 企业应急管理人员
+ * @Autor: fengshuai
+ * @Date: 2022-10-15 14:35:41
+ * @LastEditors: fengshuai
+ * @LastEditTime: 2022-10-16 22:14:23
+ */
 const { DataTypes } = require('sequelize')
 const seq = require('../db/seq')
 
