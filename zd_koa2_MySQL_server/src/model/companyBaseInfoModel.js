@@ -157,6 +157,31 @@ const CompanyBaseInfo = seq.define('companyBaseInfos', {
     allowNull: true,
     comment: '应急监测方案'
   },
+  fileNameBack1: {
+    type:DataTypes.STRING,
+    allowNull: true,
+    comment: '企业应急预案相关文件-突发环境事件应急预案备案表'
+  },
+  fileNameBack2: {
+    type:DataTypes.STRING,
+    allowNull: true,
+    comment: '企业应急预案相关文件-环境应急预案及编制说明'
+  },
+  fileNameBack3: {
+    type:DataTypes.STRING,
+    allowNull: true,
+    comment: '企业应急预案相关文件-环境风险评估报告'
+  },
+  fileNameBack4: {
+    type:DataTypes.STRING,
+    allowNull: true,
+    comment: '企业应急预案相关文件-环境应急资源调查报告'
+  },
+  fileNameBack5: {
+    type:DataTypes.STRING,
+    allowNull: true,
+    comment: '企业应急预案相关文件-环境应急预案评审意见'
+  },
   isAssessment: {
     type:DataTypes.STRING,
     allowNull: true,
@@ -185,7 +210,32 @@ const CompanyBaseInfo = seq.define('companyBaseInfos', {
   fileNameBack10: {
     type:DataTypes.STRING,
     allowNull: true,
-    comment: '尾矿库企业应急预案相关文件'
+    comment: '尾矿库应急监测方案'
+  },
+  fileNameBack11: {
+    type:DataTypes.STRING,
+    allowNull: true,
+    comment: '尾矿库企业应急预案相关文件-突发环境事件应急预案备案表'
+  },
+  fileNameBack12: {
+    type:DataTypes.STRING,
+    allowNull: true,
+    comment: '尾矿库企业应急预案相关文件-环境应急预案及编制说明'
+  },
+  fileNameBack13: {
+    type:DataTypes.STRING,
+    allowNull: true,
+    comment: '尾矿库企业应急预案相关文件-环境风险评估报告'
+  },
+  fileNameBack14: {
+    type:DataTypes.STRING,
+    allowNull: true,
+    comment: '尾矿库企业应急预案相关文件-环境应急资源调查报告'
+  },
+  fileNameBack15: {
+    type:DataTypes.STRING,
+    allowNull: true,
+    comment: '尾矿库企业应急预案相关文件-环境应急预案评审意见'
   },
 
 }, {
