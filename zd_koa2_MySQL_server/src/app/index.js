@@ -18,6 +18,14 @@ const errHandler = require('./errHandler')
 
 const app = new Koa()
 
+// 解决跨域问题
+app.use(async (ctx, next) => {
+  ctx.set('Access-Control-Allow-Origin', '*');
+  ctx.set('Access-Control-Allow-Headers', 'x-requested-with, accept, origin, content-type');
+  ctx.set('Access-Control-Allow-Methods', 'OPTIONS, GET, PUT, POST, DELETE');
+  await next();
+});
+
 // app.use(KoaBody())
 app.use(KoaBody({
   multipart: true,
