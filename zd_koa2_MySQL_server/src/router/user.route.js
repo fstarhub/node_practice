@@ -29,6 +29,8 @@ router.post('/newAdd', auth, hadAdminPermission, verifyUser, ctyptPassword, User
 router.post('/editOne', auth, hadAdminPermission, UserContraller.editUser)
 // 删除用户
 router.post('/delOne', auth, hadAdminPermission, UserContraller.delOne)
+// 查询当前登录用户信息
+router.get('/findCurrent', auth, UserContraller.findCurrentUser)
 
 // 字典接口
 router.post('/getOptions', (ctx) => {

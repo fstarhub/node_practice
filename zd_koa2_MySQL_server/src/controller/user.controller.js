@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 const { JWT_SECRET } = require('../config/config.default')
-const { createUser, getUserInfo, updateById, findUsers, addUser, updateUser, delUser } = require('../service/user.service')
+const { createUser, getUserInfo, updateById, findUsers, addUser, updateUser, delUser, findCurrent } = require('../service/user.service')
 class UserContraller {
   // static registerTest(ctx, next) {
   //   console.log('jajjaajj')
@@ -147,6 +147,23 @@ class UserContraller {
       code: 0,
       message: 'Success',
       result: res
+    }
+  }
+  
+  async findCurrentUser(ctx) {
+    const res = await findCurrent(ctx.request.query)
+    if (res) {
+      ctx.body = {
+        code: 0,
+        message: 'Success',
+        result: res
+      }
+    } else {
+      ctx.body = {
+        code: 1,
+        message: 'Success',
+        result: '未匹配到当前用户'
+      }
     }
   }
 }

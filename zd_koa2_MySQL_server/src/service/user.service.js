@@ -80,6 +80,14 @@ class UserService {
     })
     return res > 0 ? true : false
   }
+
+  async findCurrent(user) {
+    const res = await User.findOne({
+      where: user
+    })
+    // console.log(res.dataValues, '---')
+    return res.dataValues ? res.dataValues : false
+  }
 }
 
 module.exports = new UserService()
