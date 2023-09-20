@@ -1,0 +1,5 @@
+node_modules
+src/upload
+
+.DS_Store
+*/.DS_Store
